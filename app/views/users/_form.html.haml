@@ -1,0 +1,22 @@
+= form_with(model: @resource) do |form|
+  - if user.errors.any?
+    .error-messages{ style: "color: red" }
+      %h2= "#{pluralize(@resource.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+        - @resource.errors.each do |error|
+          %li= error.full_message
+
+  .field
+    = form.label :email, style: "display: block"
+    = form.text_field :email_address
+
+  .field
+    = form.label :password, style: "display: block"
+    = form.password_field :password
+
+  .field
+    = form.label :password_confirmation, style: "display: block"
+    = form.password_field :password_confirmation
+
+  .actions
+    = form.submit

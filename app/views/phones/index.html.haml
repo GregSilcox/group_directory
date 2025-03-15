@@ -1,0 +1,13 @@
+%p{ style: "color: green" }= notice
+
+- content_for :title, "Phones"
+
+%h1 Phones
+
+#phones
+  - @resources.each do |phone|
+    = render phone
+    %p
+      = link_to "Show this phone", phone
+
+= link_to "New phone", new_phone_path

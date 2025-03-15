@@ -1,0 +1,9 @@
+%p{ style: "color: green" }= notice
+
+= render @resource
+
+%div
+  = link_to "Edit this user", edit_user_path(@resource)
+  |
+  = link_to "Back to users", users_path
+  = button_to "Destroy this user", @resource, method: :delete

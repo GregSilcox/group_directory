@@ -1,0 +1,14 @@
+= form_with(model: phone) do |form|
+  - if phone.errors.any?
+    .error-messages{ style: "color: red" }
+      %h2= "#{pluralize(phone.errors.count, 'error')} prohibited this phone from being saved:"
+      %ul
+        - phone.errors.each do |error|
+          %li= error.full_message
+
+  .form-group
+    = form.label :number, style: "display: block"
+    = form.text_field :number
+
+  .form-group
+    = form.submit

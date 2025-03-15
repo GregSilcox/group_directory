@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  allow_unauthenticated_access only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
   before_action :set_group, only: %i[ show edit update destroy ]
 
   # GET /groups or /groups.json

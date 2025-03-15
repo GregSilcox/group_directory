@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  allow_unauthenticated_access
+  allow_unauthenticated_access only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   def new
     @user = User.new
@@ -19,6 +19,6 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.expect(user: [:email_address, :password, :password_confirmation])
+    params.expect(user: [ :email_address, :password, :password_confirmation ])
   end
 end

@@ -1,0 +1,10 @@
+- content_for :title, "New phone"
+
+%h1 New phone
+
+= render "form", phone: @resource
+
+%br/
+
+%div
+  = link_to "Back to phones", phones_path

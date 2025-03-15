@@ -13,16 +13,15 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/groups", type: :request do
-  
   # This should return the minimal set of attributes required to create a valid
   # Group. As you add validations to Group, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryBot.attributes_for(:group)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: nil } # Assuming 'name' is a required attribute for Group
   }
 
   describe "GET /index" do
@@ -68,6 +67,11 @@ RSpec.describe "/groups", type: :request do
         post groups_url, params: { group: valid_attributes }
         expect(response).to redirect_to(group_url(Group.last))
       end
+
+      it "renders a successful response (i.e. to display the 'show' template)" do
+        post groups_url, params: { group: valid_attributes }
+        expect(response).to render_template(:show)
+      end
     end
 
     context "with invalid parameters" do
@@ -87,14 +91,14 @@ RSpec.describe "/groups", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "New Group Name" } # Assuming 'name' is an attribute for Group
       }
 
       it "updates the requested group" do
         group = Group.create! valid_attributes
         patch group_url(group), params: { group: new_attributes }
         group.reload
-        skip("Add assertions for updated state")
+        expect(group.name).to eq("New Group Name") # Add assertions for updated state
       end
 
       it "redirects to the group" do
