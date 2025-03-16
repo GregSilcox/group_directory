@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   include ResourcesController
 
-  allow_unauthenticated_access only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
+  allow_unauthenticated_access only:
+    [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   private
 
