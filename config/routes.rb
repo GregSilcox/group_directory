@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "groups#index"
 
+  resources :addresses
+  resources :email_addresses
   resources :groups
   resources :passwords, param: :token
   resources :phones

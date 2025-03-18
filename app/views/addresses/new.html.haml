@@ -1,0 +1,10 @@
+- content_for :title, "New address"
+
+%h1 New address
+
+= render "form", address: @resource
+
+%br/
+
+%div
+  = link_to "Back to addresses", addresses_path

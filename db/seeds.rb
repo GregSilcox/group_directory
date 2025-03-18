@@ -28,6 +28,13 @@ p4 = Phone.find_or_create_by!(number: "4567890123")
 p5 = Phone.find_or_create_by!(number: "5678901234")
 p6 = Phone.find_or_create_by!(number: "6789012345")
 
+e1 = EmailAddress.find_or_create_by!(address: "greg.silcox+seed1@gmail.com")
+e2 = EmailAddress.find_or_create_by!(address: "greg.silcox+seed1@gmail.com")
+
+a1 = Address.find_or_create_by!(street1: "123 Main St", street2: "Unit C", city: "Anytown", state: "NY", country: "USA", zipcode: "12345")
+a2 = Address.find_or_create_by!(street1: "234 Main St", street2: "Unit D", city: "Anytown", state: "NY", country: "USA", zipcode: "12345")
+a3 = Address.find_or_create_by!(street1: "345 Main St", street2: "Unit E", city: "Anytown", state: "NY", country: "USA", zipcode: "12345")
+
 r1 = Role.create_with(kind: "admin", status: "active")
   .find_or_create_by!(user_id: u1.id, group_id: g1.id)
 r4 = Role.create_with(kind: "member", status: "active")
@@ -46,3 +53,9 @@ l3 = Link.find_or_create_by!(from: u2, to: p3)
 l4 = Link.find_or_create_by!(from: u2, to: p4)
 l5 = Link.find_or_create_by!(from: u3, to: p5)
 l6 = Link.find_or_create_by!(from: u3, to: p6)
+
+l7= Link.find_or_create_by!(from: u1, to: e1)
+l8= Link.find_or_create_by!(from: u1, to: e2)
+l9 = Link.find_or_create_by!(from: u1, to: a1)
+l10 = Link.find_or_create_by!(from: u1, to: a2)
+l11 = Link.find_or_create_by!(from: u2, to: a3)

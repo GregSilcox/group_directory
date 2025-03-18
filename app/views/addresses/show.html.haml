@@ -1,0 +1,10 @@
+%p{ style: "color: green" }= notice
+
+= render @resource
+
+%div
+  = link_to "Edit this address", edit_address_path(@resource)
+  |
+  = link_to "Back to addresses", addresses_path
+
+  = button_to "Destroy this address", @resource, method: :delete

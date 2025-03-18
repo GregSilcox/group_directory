@@ -1,0 +1,34 @@
+= form_with(model: address) do |form|
+  - if address.errors.any?
+    .error-messages{ style: "color: red" }
+      %h2= pluralize(address.errors.count, "error") + " prohibited this address from being saved:"
+      %ul
+        - address.errors.each do |error|
+          %li= error.full_message
+
+  .form-group
+    = form.label :street1, style: "display: block"
+    = form.text_field :street1
+
+  .form-group
+    = form.label :street2, style: "display: block"
+    = form.text_field :street2
+
+  .form-group
+    = form.label :city, style: "display: block"
+    = form.text_field :city
+
+  .form-group
+    = form.label :state, style: "display: block"
+    = form.text_field :state
+
+  .form-group
+    = form.label :country, style: "display: block"
+    = form.text_field :country
+
+  .form-group
+    = form.label :zipcode, style: "display: block"
+    = form.text_field :zipcode
+
+  .form-group
+    = form.submit

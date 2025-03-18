@@ -1,0 +1,13 @@
+%p{ style: "color: green" }= notice
+
+- content_for :title, "Groups"
+
+%h1 Groups
+
+#groups
+  - @resources.each do |group|
+    = render group
+    %p
+      = link_to "Show this group", group
+
+= link_to "New group", new_group_path

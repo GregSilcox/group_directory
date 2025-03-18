@@ -1,0 +1,12 @@
+- content_for :title, "Editing address"
+
+%h1 Editing address
+
+= render "form", address: @resource
+
+%br/
+
+%div
+  = link_to "Show this address", @resource
+  |
+  = link_to "Back to addresses", addresses_path

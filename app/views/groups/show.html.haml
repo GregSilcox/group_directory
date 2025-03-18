@@ -1,0 +1,30 @@
+%p{ style: "color: green" }= notice
+
+%h1 Group
+= render @resource
+
+%div
+  = link_to "Edit this group", edit_group_path(@resource)
+  |
+  = link_to "Back to groups", groups_path
+  = button_to "Destroy this group", @resource, method: :delete
+
+%h1 Group's Users
+- @resource.users.each do |user|
+  %div
+    = link_to user.email_address, user_path(user)
+    
+%h1 Group's Phone Numbers
+-# @resource.phones.each do |phone|
+  %div
+    = link_to phone.number, phone_path(phone)
+
+%h1 Group's Email Addresses
+-# @resource.email_addresses.each do |email_address|
+  %div
+  = link_to email_address.address, email_address_path(email_address)
+
+%h3 Group's Addresses
+-# @resource.addresses.each do |address|
+  %div
+  = link_to address.street1, email_address_path(address)

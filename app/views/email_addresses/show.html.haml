@@ -1,0 +1,10 @@
+%p{ style: "color: green" }= notice
+
+= render @resource
+
+%div
+  = link_to "Edit this email address", edit_email_address_path(@resource)
+  |
+  = link_to "Back to email addresses", email_addresses_path
+
+  = button_to "Destroy this email address", @resource, method: :delete

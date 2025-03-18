@@ -1,0 +1,10 @@
+- content_for :title, "New email address"
+
+%h1 New email address
+
+= render "form", email_address: @resource
+
+%br/
+
+%div
+  = link_to "Back to email addresses", email_addresses_path

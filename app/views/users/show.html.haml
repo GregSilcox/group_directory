@@ -1,5 +1,6 @@
 %p{ style: "color: green" }= notice
 
+%h1 User
 = render @resource
 
 %div
@@ -7,3 +8,23 @@
   |
   = link_to "Back to users", users_path
   = button_to "Destroy this user", @resource, method: :delete
+
+%h1 User's Groups
+- @resource.groups.each do |group|
+  %div
+    = link_to group.name, group_path(group)
+
+%h1 User's Phone Numbers
+- @resource.phones.each do |phone|
+  %div
+    = link_to phone.number, phone_path(phone)
+
+%h1 User's Email addresses
+- @resource.email_addresses.each do |email_address|
+  %div
+  = link_to email_address.address, email_address_path(email_address)
+
+%h1 User's Addresses
+- @resource.addresses.each do |address|
+  %div
+  = link_to address.street1, email_address_path(address)

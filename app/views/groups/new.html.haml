@@ -1,0 +1,10 @@
+- content_for :title, "New group"
+
+%h1 New group
+
+= render "form", group: @resource
+
+%br/
+
+%div
+  = link_to "Back to groups", groups_path

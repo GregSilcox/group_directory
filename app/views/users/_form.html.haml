@@ -1,9 +1,9 @@
-= form_with(model: @resource) do |form|
+= form_with(model: user) do |form|
   - if user.errors.any?
     .error-messages{ style: "color: red" }
-      %h2= "#{pluralize(@resource.errors.count, 'error')} prohibited this user from being saved:"
+      %h2= "#{pluralize(user.errors.count, 'error')} prohibited this user from being saved:"
       %ul
-        - @resource.errors.each do |error|
+        - user.errors.each do |error|
           %li= error.full_message
 
   .field

@@ -10,8 +10,8 @@ class User < ApplicationRecord
   # linked groups and items
   has_many :links, foreign_key: "from_id", dependent: :destroy
   has_many :phones, through: :links, source: :to, source_type: "Phone"
-  # has_many :email_addresses, through: :links, source: :to, source_type: "EmailAddress"
-  # has_many :addresses, through: :links, source: :to, source_type: "Address"
+  has_many :email_addresses, through: :links, source: :to, source_type: "EmailAddress"
+  has_many :addresses, through: :links, source: :to, source_type: "Address"
 
   has_many :roles, dependent: :destroy
   has_many :groups, through: :roles

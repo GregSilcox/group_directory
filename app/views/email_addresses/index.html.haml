@@ -1,0 +1,13 @@
+%p{ style: "color: green" }= notice
+
+- content_for :title, "Email addresses"
+
+%h1 Email addresses
+
+#email_addresses
+  - @resources.each do |email_address|
+    = render email_address
+    %p
+      = link_to "Show this email address", email_address
+
+= link_to "New email address", new_email_address_path

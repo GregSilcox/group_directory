@@ -1,0 +1,22 @@
+= form_with(model: email_address) do |form|
+  - if email_address.errors.any?
+    .error-messages{ style: "color: red" }
+      %h2= "#{pluralize(email_address.errors.count, 'error')} prohibited this email_address from being saved:"
+      %ul
+        - email_address.errors.each do |error|
+          %li= error.full_message
+
+  .form-group
+    = form.label :address, style: "display: block"
+    = form.text_field :address
+
+  .form-group
+    = form.label :kind, style: "display: block"
+    = form.text_field :kind
+
+  .form-group
+    = form.label :status, style: "display: block"
+    = form.text_field :status
+
+  .form-group
+    = form.submit
