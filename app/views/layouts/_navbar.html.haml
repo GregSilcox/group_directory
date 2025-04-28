@@ -1,0 +1,19 @@
+%nav.bg-teal-600.flex.items-center.justify-between
+  .flex.items-center.flex-shrink-0.text-white
+    #name.mr-4.p-6
+      .font-bold.text-xl Group Directory
+    #menu.ml-6.p-6
+      = link_to "Groups", groups_path, 
+        class: "text-sm text-white hover:underline"
+
+  #auth
+    .flex.items-center
+      - if authenticated?
+        = button_to "Log Out", session_path, method: "delete", 
+          class: "text-sm text-white hover:underline ml-4 p-6"
+      - else
+        = link_to "Log In", new_session_path, 
+          class: "text-sm text-white hover:underline mr-4 p-6"
+
+        = link_to "Register", new_user_path, 
+          class: "text-sm text-white hover:underline ml-4 p-6"
