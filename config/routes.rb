@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Defines the root path route ("/")
   root "groups#index"
 
   resources :addresses
   resources :email_addresses
   resources :groups
-  resources :passwords, param: :token
   resources :phones
-  resources :registrations
-  resource  :session
   resources :users
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

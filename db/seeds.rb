@@ -8,11 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 u1 = User.create_with(password: "password", password_confirmation: "password")
-  .find_or_create_by!(email_address: "greg.silcox+dev1@gmail.com")
+  .find_or_create_by!(email: "greg.silcox+dev1@gmail.com")
 u2 = User.create_with(password: "password", password_confirmation: "password")
-  .find_or_create_by!(email_address: "greg.silcox+dev2@gmail.com")
+  .find_or_create_by!(email: "greg.silcox+dev2@gmail.com")
 u3 = User.create_with(password: "password", password_confirmation: "password")
-  .find_or_create_by!(email_address: "greg.silcox+dev3@gmail.com")
+  .find_or_create_by!(email: "greg.silcox+dev3@gmail.com")
 
 g1 = Group.create_with(description: "Group 1 description").
   find_or_create_by!(name: "Group 1")

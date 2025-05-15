@@ -87,14 +87,14 @@ RSpec.describe "/users", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        { email_address: "test@example.com", password: "password", password_confirmation: "password" }
+        { email: "test@example.com", password: "password", password_confirmation: "password" }
       }
 
       it "updates the requested user" do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: new_attributes }
         user.reload
-        expect(user.email_address).to eq("test@example.com")
+        expect(user.email).to eq("test@example.com")
       end
 
       it "redirects to the user" do
